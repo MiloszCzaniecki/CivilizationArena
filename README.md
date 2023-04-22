@@ -1,8 +1,6 @@
 # CivilizationArena
 Turn based civilization simulation in Java
 
-Arena Cywilizacji jest grą, która gra samą siebie i nie potrzebuje interakcji gracza – jest automatonem.
-
 Przebieg gry:
 1. Cywilizacje są małymi, kolorowymi plamami rozmieszczonym losowo na wygenerowanej mapie.
 2. Cywilizacje dochodzą do momentu w którym nie ma już wolnej przestrzeni, ich granice się stykają.
@@ -36,32 +34,31 @@ Woda
 Ocean	
 
 Są następujące jednostki oraz ich koszta:
-Wojownik
-Strzelec
-Mag
-Maszyny
-Statek
-
-1 Tura – 5 sekund – to 15 lat. 
-Cywilizacje podbijają/ rozwijają się/ upadają turami.
-Cywilizacja żyła 300 lat – 100 sekund – w turze 21 umiera.
-
-Gra może się rozgrywać dowolnie długo, zatem aby ograniczyć nieograniczony rozwój cywilizacji wprowadzamy czynniki ograniczające:
-1. Co 300 lat Cywilizacja umiera – rozpada się na mniejsze Cywilizacje.
-2. Jeśli wojna między dwoma Cywilizacjami trwa dłużej niż 30 lat – obie cywilizacje spadają o poziom technologicznie niżej.
-
-Nazwy miast:
-Vostomir: Ӝїvnoї
-Zapadoslav: Órlohrád 
-Jugaria: Ћievljavić
+Wojownik (drewno, metale)
+Strzelec (drewno, metale)
+Mag (towary luksusowe, metale)
+Maszyny (towary techniczne, metale)
+Statek (towary techniczne, drewno)
 
 Mechanika gry:
-Każda Cywilizacja zaczyna grę mając pewne zasoby, które co turę – z każdą epoką więcej - generuje Twierdza – stolica cywilizacji. 
+Każda Cywilizacja zaczyna grę mając pewne zasoby. Co turę Twierdza – stolica cywilizacji - generuje złoto,
+a budynki produkują przypisane sobie zasoby. 
+
+1 Tura – 10 sekund – to 15 lat. 
+Cywilizacje podbijają/ rozwijają się/ upadają turami.
+Cywilizacja żyje 300 ± 45 lat –> 200 ± 30 sekund – w turze 21 ± 3 umiera,
+wszystkie budowle tej cywilizacji i granice znikają. Losowo może powstać 0, 1 lub 2 cywilizacje,
+które będą miały twierdze losowo w miejscach, gdzie stały inne budynki.
+
+Nazwy miast:
+Vostomir: Ӝїvnoї, Orshaў, Чelyagrad
+Zapadoslav: Órlohrád, Trnavčín, Lípovice
+Jugaria: Ћievljavić, Gostiш, Џžice
 
 Koszta działań:
-1. Rozszerzenie granic 
-2. Jednostki
-3. Budynki 
+1. Rozszerzenie granic (złoto)
+2. Jednostki (złoto, zasoby)
+3. Budynki (złoto, zasoby)
 
 Nagrody działań:
 1. Rozszerzenie granic → można budować i zdobywać zasoby
@@ -69,9 +66,9 @@ Nagrody działań:
 3. Dostęp do zasobów
 
 Zasoby są używane do budowy budynków, które także wytwarzają złoto: 
-Farma 
-Tartak 
-Kamieniołom 
-Kopalnia 
-Manufaktura  
-Fabryka 
+Farma -> Żywność
+Tartak -> Drewno
+Kamieniołom -> Kamień
+Kopalnia -> Metal
+Manufaktura  -> Towary Luksusowe
+Fabryka -> Towary Techniczne
