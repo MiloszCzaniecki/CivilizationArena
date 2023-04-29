@@ -27,13 +27,7 @@ Przebieg gry:                                                                   
 Gra się nie kończy, ale aby ją wygrywać należy:                                                                     1. Dominować wojskowo (mieć największą armię → teren i zasoby)                                                      2. Dominować ekonomicznie (mieć najwięcej budynków → najwięcej złota)
 
 Są następujące kategorie zasobów:
-Złoto 
-Żywność
-Drewno
-Skała
-Metale
-Towary Luksusowe 
-Towary Techniczne
+Złoto, Żywność, Drewno, Skała, Metale, Towary Luksusowe, Towary Techniczne
 
 Są następujące biomy, zasoby które oferują i budynki do ich pozyskania:
 Łąka 	 → Farma → Żywność
@@ -69,7 +63,7 @@ Rozróżniamy 3 główne działania cywilizacji, ich koszty i nagrody:
 3. Budynki (złoto, zasoby) → produkują zasoby
 
 Przykładowe nazwy miast cywilizacji:
-Vostomir: Ӝїvnoї, Orshaў, Чelyagrad
+Vostomir: Ӝїvnoї, Orshaў, Чelyagяad
 Zapadoslav: Órlohrád, Tarnavčín, Lípovice
 Jugaria: Ћievljavić, Gostiш, Џžice
 
