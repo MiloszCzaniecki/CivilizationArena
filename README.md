@@ -1,16 +1,25 @@
 # CivilizationArena
-Symulacja turowej gry cywilizacyjnej w Javie.
-Używając dalej słowa "cywilizacji" mamy na myśli agenty klasy Cywilizacja używającej różnych 
-atrybutów i innych klas, natomiast słowo "gra" używane jest tożsamo z symulacją.
+Symulacja turowej gry cywilizacyjnej w Javie.                                                                 Używając dalej słowa "cywilizacji" mamy na myśli agenty klasy Cywilizacja używającej różnych  atrybutów i innych klas, natomiast słowo "gra" używane jest tożsamo z symulacją.
 
-Przebieg gry:
-1. Cywilizacje są małymi, kolorowymi plamami rozmieszczonym losowo na wygenerowanej mapie.
-2. Cywilizacje dochodzą do momentu w którym nie ma już wolnej przestrzeni, ich granice się stykają.
-3. Cywilizacje zaczynają ze sobą walczyć.
+Planszą gry będzie szachownica o rozmiarze 4x4 do 24x24, gdzie każdy punkt tablicy Plansza[x,y] będzie      przypisany tablicy Mapa[Biom, Budowla, Jednostka, Cywilizacja], gdzie każda pozycja oznacza rodzaj    atrybutu/obiektu przypisanego konkretnemu punktowi Planszy. To oznacza, że każdy punkt Plansza[x,y] posiada informacje o swoim Biomie, Budowli, Jednostce i Cywilizacji. Jeśli nie ma Budowli, Jednostki ani Cywilizacji-   wartość konkretnego atrybutu/obiektu wynosi 0. 
 
-Gra się nie kończy, ale aby ją wygrywać należy:
-1. Dominować wojskowo (mieć największą armię → teren i zasoby)
-2. Dominować ekonomicznie (mieć najwięcej budynków → najwięcej złota)
+Przykładowa Plansza 4x4 może wyglądać tak:
+[Łąka, 0, 0, 0]                [Łąka, Farma, 0, 1]          [Woda, 0, 0, 1]       [Ocean, 0, 0, 0]
+[Tundra, Tartak, 0, 1]         [Łąka, Twierdza, Maszyna, 1] [Las, 0, 0, 0]        [Woda, 0, 0, 0]
+[Góra, Kamieniołom, 0, 1]      [Tundra, 0, 0, 0]            [Las, 0, Strzelec, 2] [Łąka, Farma, 0, 2]
+[Pustkowie, Manufaktura, 0, 0] [Góra, Kamieniołom, 0, 2]    [Las, Tartak, 0, 2]   [Góra, Twierdza, Wojownik, 2]
+
+Biom musi być ZAWSZE określony, Budowla, Jednostka i Cywilizacja mają wartości 0 jeśli nie ma ich na danym punkcie planszy, albo przyjmują kolejno nazwę budowli, nazwę jednostki i numer porządkowy cywilizacji, która włada tym terenem. (Numery cywilizacji są ich nazwą, kolejne cywilizacje mają kolejne numery porządkowe od 1 do n, gdzie n jest ostatnią nowo wygenerowaną cywilizacją powstałą w czasie trwania symulacji).
+
+Dana budowla (np. Tartak) nie może istnieć bez odpowiedniego biomu (np. Lasu) i Cywilizacji która ma ją w swoich granicach (Tartak nie może być zbudowany poza granicami cywilizacji). Biom natomiast nie potrzebuje Budowli, Jednostki ani Cywilizacji. Jednostka może być na dowolnym terenie gdzie nie ma innych jednostek (nie musi być w granicach żadnej Cywilizacji). Jeśli jednostka chce przejść na dane pole a jest tam wróg - musi go atakować.
+Jeśli jednostka chce przejść na dane pole a tam jest przyjaciel - przyjaciel musi przejść na inne pole.
+
+Dla uproszczenia przyjmujemy, że każdy Budynek produkuje 1 złoto i 1 zasób na turę, a Twierdza zaczyna grę
+z 5 złota i 5 każdego towaru. Wielkość produkcji i ilość zasobów początkowych mogą być parametrami początkowymi symulacji.
+
+Przebieg gry:                                                                                                       1. Cywilizacje są małymi, kolorowymi plamami rozmieszczonym losowo na wygenerowanej mapie.                          2. Cywilizacje dochodzą do momentu w którym nie ma już wolnej przestrzeni, ich granice się stykają.                 3. Cywilizacje zaczynają ze sobą walczyć.
+
+Gra się nie kończy, ale aby ją wygrywać należy:                                                                     1. Dominować wojskowo (mieć największą armię → teren i zasoby)                                                      2. Dominować ekonomicznie (mieć najwięcej budynków → najwięcej złota)
 
 Są następujące kategorie zasobów:
 Złoto 
@@ -65,6 +74,7 @@ Warunki początkowe gry:
 - ilość cywilizacji
 - wielkość mapy
 - ilość zasobów (nie każdy biom np. typu łąka)
+- ilość zasobów produkowanych przez budynki co turę
 - ilość zasobów początkowych (ile złota, ... ma na początku Twierdza)
 
 Modyfikowalne warunki w czasie gry:
@@ -82,9 +92,9 @@ Zwracamy szczególnie uwagę na czynniki ekonomiczne i wojskowe symulacji
 Decyzje będą podejmowane przez cywilizacje na podstawie rachunku zysków do 3 tur do przodu
 (np. jeśli nie mamy granicy z sąsiadem, bardziej opłaca się rozszerzyć granicę i zdobyć na niej zasób niż 
 rekrutować z Twierdzy nową jednostkę)
-Jednostki wojskowe są rekrutowane tylko w Twierdzy (możliwe że dodamy Koszary)
+Jednostki wojskowe są rekrutowane tylko w Twierdzy 
 
 Gra rozgrywa się turami, więc budowanie lub przejmowanie terytorium wroga dzieli się na kroki trwające 1 turę każda:
 1. Poszerzenie terytorium → zbudowanie budowli → dopiero teraz zaczyna produkować zasoby i złoto
 lub
-2. Wejście jednostki na terytorium wroga → zburzenie jego budowli → poszerzenie granicy
+2. Wejście jednostki na terytorium wroga → zburzenie jego budowli → usunięcie jego granicy → poszerzenie granicy
