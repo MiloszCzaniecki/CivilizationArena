@@ -4,6 +4,7 @@ Symulacja turowej gry cywilizacyjnej w Javie.                                   
 Planszą gry będzie szachownica o rozmiarze 4x4 do 24x24, gdzie każdy punkt tablicy Plansza[x,y] będzie      przypisany tablicy Mapa[Biom, Budowla, Jednostka, Cywilizacja], gdzie każda pozycja oznacza rodzaj    atrybutu/obiektu przypisanego konkretnemu punktowi Planszy. To oznacza, że każdy punkt Plansza[x,y] posiada informacje o swoim Biomie, Budowli, Jednostce i Cywilizacji. Jeśli nie ma Budowli, Jednostki ani Cywilizacji-   wartość konkretnego atrybutu/obiektu wynosi 0. 
 
 Przykładowa Plansza 4x4 może wyglądać tak:
+
 [Łąka, 0, 0, 0]                [Łąka, Farma, 0, 1]          [Woda, 0, 0, 1]       [Ocean, 0, 0, 0]
 [Tundra, Tartak, 0, 1]         [Łąka, Twierdza, Maszyna, 1] [Las, 0, 0, 0]        [Woda, 0, 0, 0]
 [Góra, Kamieniołom, 0, 1]      [Tundra, 0, 0, 0]            [Las, 0, Strzelec, 2] [Łąka, Farma, 0, 2]
