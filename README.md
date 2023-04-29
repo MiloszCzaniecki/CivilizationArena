@@ -6,9 +6,13 @@ Planszą gry będzie szachownica o rozmiarze 4x4 do 24x24, gdzie każdy punkt ta
 Przykładowa Plansza 4x4 może wyglądać tak:
 
 [Łąka, 0, 0, 0]                [Łąka, Farma, 0, 1]          [Woda, 0, 0, 1]       [Ocean, 0, 0, 0]
+
 [Tundra, Tartak, 0, 1]         [Łąka, Twierdza, Maszyna, 1] [Las, 0, 0, 0]        [Woda, 0, 0, 0]
+
 [Góra, Kamieniołom, 0, 1]      [Tundra, 0, 0, 0]            [Las, 0, Strzelec, 2] [Łąka, Farma, 0, 2]
+
 [Pustkowie, Manufaktura, 0, 0] [Góra, Kamieniołom, 0, 2]    [Las, Tartak, 0, 2]   [Góra, Twierdza, Wojownik, 2]
+
 
 Biom musi być ZAWSZE określony, Budowla, Jednostka i Cywilizacja mają wartości 0 jeśli nie ma ich na danym punkcie planszy, albo przyjmują kolejno nazwę budowli, nazwę jednostki i numer porządkowy cywilizacji, która włada tym terenem. (Numery cywilizacji są ich nazwą, kolejne cywilizacje mają kolejne numery porządkowe od 1 do n, gdzie n jest ostatnią nowo wygenerowaną cywilizacją powstałą w czasie trwania symulacji).
 
