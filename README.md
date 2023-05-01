@@ -1,9 +1,11 @@
 # CivilizationArena
 Symulacja turowej gry cywilizacyjnej w Javie.                                                                 Używając dalej słowa "cywilizacji" mamy na myśli obiekty klasy Cywilizacja używającej różnych atrybutów i innych klas, natomiast słowo "gra" używane jest tożsamo z symulacją.
 
-Planszą gry będzie szachownica o rozmiarze 4x4 do 24x24, gdzie każdy punkt tablicy Plansza[x,y] będzie      przypisany tablicy Mapa[Biom, Budowla, Jednostka, Cywilizacja], gdzie każda pozycja oznacza rodzaj    atrybutu/obiektu przypisanego konkretnemu punktowi Planszy. To oznacza, że każdy punkt Plansza[x,y] posiada informacje o swoim Biomie, Budowli, Jednostce i Cywilizacji. Jeśli nie ma Budowli, Jednostki ani Cywilizacji-   wartość konkretnego atrybutu/obiektu wynosi 0. 
+MECHANIKA
 
-Przykładowa Plansza 4x4 może wyglądać tak:
+Planszą gry będzie szachownica o rozmiarze 4x4 do 24x24, gdzie każdy punkt tablicy Plansza[x,y] będzie dodatkowo posiadał parametry [Biom, Budowla, Jednostka, Cywilizacja], gdzie każda pozycja oznacza rodzaj atrybutu/obiektu przypisanego konkretnemu punktowi Planszy. To oznacza, że każdy punkt Plansza[x,y] posiada informacje o swoim Biomie, Budowli, Jednostce i Cywilizacji. Jeśli nie ma Budowli, Jednostki ani Cywilizacji-   wartość konkretnego atrybutu/obiektu wynosi 0. 
+
+Przykładowa Plansza 4x4 może wyglądać (z pominięciem współrzędnych x,y) tak:
 
 [Łąka, 0, 0, 0]                [Łąka, Farma, 0, 1]          [Woda, 0, 0, 1]       [Ocean, 0, 0, 0]
 
@@ -22,32 +24,11 @@ Jeśli jednostka chce przejść na dane pole a tam jest przyjaciel - przyjaciel 
 Dla uproszczenia przyjmujemy, że każdy Budynek produkuje 1 złoto i 1 zasób na turę, a Twierdza zaczyna grę
 z 5 złota i 5 każdego towaru. Wielkość produkcji i ilość zasobów początkowych mogą być parametrami początkowymi symulacji.
 
-Przebieg gry:                                                                                                       1. Cywilizacje są małymi, kolorowymi plamami rozmieszczonym losowo na wygenerowanej mapie.                          2. Cywilizacje dochodzą do momentu w którym nie ma już wolnej przestrzeni, ich granice się stykają.                 3. Cywilizacje zaczynają ze sobą walczyć.
+Przebieg gry:                                                                                                       1. Cywilizacje są małymi, kolorowymi plamami rozmieszczonym losowo na wygenerowanej mapie.                          2. Cywilizacje dochodzą do momentu w którym nie ma już wolnej przestrzeni, ich granice się stykają.                 3. Cywilizacje zaczynają ze sobą walczyć, dokonują decyzji za pomocą rachunku zysku i strat (co się bardziej opłaca
+zrobić tej tury)
 
 Gra się nie kończy, ale aby ją wygrywać należy:                                                                     1. Dominować wojskowo (mieć największą armię → teren i zasoby)                                                      2. Dominować ekonomicznie (mieć najwięcej budynków → najwięcej złota)
 
-Są następujące kategorie zasobów:
-Złoto, Żywność, Drewno, Skała, Metale, Towary Luksusowe, Towary Techniczne
-
-Są następujące biomy, zasoby które oferują i budynki do ich pozyskania:
-Łąka 	 → Farma → Żywność
-Las		 → Tartak → Drewno
-Pustka → Manufaktura  → Towary Luksusowe lub Pustka → Fabryka → Towary Techniczne
-Tundra → Manufaktura  → Towary Luksusowe lub Tundra → Fabryka → Towary Techniczne
-Góry	 → Kopalnia → Metal lub Góry → Kamieniołom → Kamień
-Woda	 → Łowisko → Żywność
-Ocean	 → Łowisko → Żywność
-W sytuacji gdzie z pewnego powodu nie można wyprodukować jakiegoś zasobu można go wymienić za złoto 
-(stale generowane przez Twierdzę i budowle)
-
-Są następujące jednostki oraz ich koszta:
-Wojownik (drewno, metale)
-Strzelec (drewno, metale)
-Mag (towary luksusowe, metale)
-Maszyny (towary techniczne, metale)
-Statek (towary techniczne, drewno)
-
-Mechanika gry:
 Każda Cywilizacja zaczyna grę mając pewne zasoby. Co turę Twierdza – stolica cywilizacji - generuje złoto,
 a budynki produkują przypisane sobie zasoby. 
 
@@ -97,3 +78,29 @@ Gra rozgrywa się turami, więc budowanie lub przejmowanie terytorium wroga dzie
 1. Poszerzenie terytorium → zbudowanie budowli → dopiero teraz zaczyna produkować zasoby i złoto
 lub
 2. Wejście jednostki na terytorium wroga → zburzenie jego budowli → usunięcie jego granicy → poszerzenie granicy
+
+BIOM I BUDOWLA
+
+Są następujące kategorie zasobów:
+Złoto, Żywność, Drewno, Skała, Metale, Towary Luksusowe, Towary Techniczne
+
+Są następujące biomy, zasoby które oferują i budynki do ich pozyskania:
+Łąka 	 → Farma → Żywność
+Las		 → Tartak → Drewno
+Pustkowie → Manufaktura  → Towary Luksusowe lub Pustkowie → Fabryka → Towary Techniczne
+Tundra → Manufaktura  → Towary Luksusowe lub Tundra → Fabryka → Towary Techniczne
+Góry	 → Kopalnia → Metal lub Góry → Kamieniołom → Kamień
+Woda	 → Farma → Żywność
+Ocean	 → Farma → Żywność
+W sytuacji gdzie z pewnego powodu nie można wyprodukować jakiegoś zasobu można go wymienić za złoto 
+(stale generowane przez Twierdzę i budowle)
+
+JEDNOSTKA
+
+Są następujące jednostki oraz ich koszta:
+Wojownik (drewno, metale)
+Strzelec (drewno, metale)
+Mag (towary luksusowe, metale)
+Maszyny (towary techniczne, metale)
+Statek (towary techniczne, drewno)
+
