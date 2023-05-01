@@ -1,5 +1,5 @@
 # CivilizationArena
-Symulacja turowej gry cywilizacyjnej w Javie.                                                                 Używając dalej słowa "cywilizacji" mamy na myśli agenty klasy Cywilizacja używającej różnych  atrybutów i innych klas, natomiast słowo "gra" używane jest tożsamo z symulacją.
+Symulacja turowej gry cywilizacyjnej w Javie.                                                                 Używając dalej słowa "cywilizacji" mamy na myśli obiekty klasy Cywilizacja używającej różnych atrybutów i innych klas, natomiast słowo "gra" używane jest tożsamo z symulacją.
 
 Planszą gry będzie szachownica o rozmiarze 4x4 do 24x24, gdzie każdy punkt tablicy Plansza[x,y] będzie      przypisany tablicy Mapa[Biom, Budowla, Jednostka, Cywilizacja], gdzie każda pozycja oznacza rodzaj    atrybutu/obiektu przypisanego konkretnemu punktowi Planszy. To oznacza, że każdy punkt Plansza[x,y] posiada informacje o swoim Biomie, Budowli, Jednostce i Cywilizacji. Jeśli nie ma Budowli, Jednostki ani Cywilizacji-   wartość konkretnego atrybutu/obiektu wynosi 0. 
 
