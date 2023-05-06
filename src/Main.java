@@ -55,6 +55,7 @@ public class Main {
        map.Attack(new int[]{1,2},Wrocław,Warszawa);
 
 
+
         if(Wrocław.getArea()!=null)
         {
             Set<int[]> q1 = new HashSet<>();
@@ -98,6 +99,8 @@ public class Main {
     System.out.println(map.neighbourS(new int[]{1,1},Wrocław));
 
 
+    System.out.println(Wrocław.expand(new int[]{4,4},map));
+    System.out.println(map.isFreeS(new int[]{1,3}));
 
 
 

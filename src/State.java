@@ -4,6 +4,8 @@ import java.util.*;
 
 public class State {
     private Set<int[]> area = new HashSet<>();
+    private static Set<int[]> usedspace = new HashSet<>();
+
 
 
 
@@ -16,12 +18,17 @@ public class State {
 
     public State(int[] a, int g, int f, int m)
     {
+        usedspace.add(a);
         area.add(a);
         gold = g;
         food = f;
         materials = m;
         ID=quantity+1;
         quantity++;
+    }
+
+    public State() {
+        area.addAll(usedspace);
     }
 
     public Set<int[]> getArea() {
@@ -51,6 +58,7 @@ public class State {
     public void annex( int[] a)
     {
         area.add(a);
+        usedspace.add(a);
     }
     public void lose(int[] a)
     {
@@ -65,7 +73,20 @@ public class State {
 
         }
         area.remove(usun);
+
     }
+    public boolean expand(int[] x, Map map)
+    {
+        boolean success = false;
+        if(map.belongsToMap(x))
+        {
+            annex(x);
+            success=true;
+        }
+        return success;
+    }
+
+
     public void addGold(int a)
     {
         gold=gold+a;

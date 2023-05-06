@@ -1,6 +1,8 @@
 package src;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Map {
     private int width;
@@ -97,5 +99,25 @@ public class Map {
                 changeOccupation(x, B, A);
             }
         }
+    }
+
+    public boolean isFreeS(int[] x)
+    {
+        boolean free=true;
+        State prop = new State();
+
+
+        for(int[] e: prop.getArea())
+        {
+            if(Arrays.equals(x,e))
+            {
+                free = false;
+            }
+
+        }
+
+
+
+        return free;
     }
 }
