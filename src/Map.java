@@ -76,8 +76,8 @@ public class Map {
         case3[0]=x[0]+1;
         case3[1]=x[1];
         int[] case4={0,0};
-        case3[0]=x[0]-1;
-        case3[1]=x[1];
+        case4[0]=x[0]-1;
+        case4[1]=x[1];
 
 
 
