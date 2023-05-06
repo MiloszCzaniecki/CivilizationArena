@@ -117,10 +117,6 @@ public class State {
             map.Attack(x,getState(),map.occupation(states, x));
         }
 
-
-
-
-
     }
 
     }
@@ -144,6 +140,15 @@ public class State {
     public State getState()
     {
         return this;
+    }
+
+    public void ExploringAction(List<State> states, int X, int Y)
+    {
+        Map map = new Map();
+        Generator G = new Generator();
+        Explore(G.GeneratePoint(X, Y),states);
+
+
     }
 
 }

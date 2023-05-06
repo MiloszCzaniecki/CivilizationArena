@@ -96,7 +96,7 @@ public class Map {
     }
     public void Attack(int[] x, State A, State B) // A atakuje B
     {
-        if(neighbourS(x,A)) {
+        if(neighbourS(x,A)&&B!=null) {
             int a = A.getGold();
             int b = B.getGold();
 
