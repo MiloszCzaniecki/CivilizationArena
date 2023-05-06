@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Generator {
 
-    public int GenerateToPlus(int X)
+    public int GenerateToPlus(int X)//generuje od zera do X
     {
         int x;
         Random gen = new Random();
@@ -16,7 +16,7 @@ public class Generator {
         return x;
     }
 
-    public int[] GeneratePoint(int X, int Y)
+    public int[] GeneratePoint(int X, int Y)//generuje punkt [x,y] gdzie x<=X y<=Y
     {
         int[] punkt = {GenerateToPlus(X),GenerateToPlus(Y)};
 

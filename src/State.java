@@ -88,12 +88,6 @@ public class State {
         return success;
     }
 
-    public void Attack(int[] x, State B)
-    {
-        B.lose(x);
-        annex(x);
-    }
-
     public void addGold(int a)
     {
         gold=gold+a;
@@ -142,7 +136,7 @@ public class State {
         return this;
     }
 
-    public void ExploringAction(List<State> states, int X, int Y)
+    public void ExploringAction(List<State> states, int X, int Y) //WAŻNE
     {
         Map map = new Map();
         Generator G = new Generator();
