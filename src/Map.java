@@ -3,8 +3,8 @@ package src;
 import java.util.*;
 
 public class Map {
-    private int width;
-    private int height;
+    private static int width;
+    private static int height;
 
 
     private static int quantity=0;
@@ -19,6 +19,7 @@ public class Map {
     }
     public Map()
     {
+
 
     }
 

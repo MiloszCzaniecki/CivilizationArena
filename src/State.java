@@ -88,6 +88,11 @@ public class State {
         return success;
     }
 
+    public void Attack(int[] x, State B)
+    {
+        B.lose(x);
+        annex(x);
+    }
 
     public void addGold(int a)
     {
@@ -97,4 +102,48 @@ public class State {
     {
         food=food+a;
     }
+
+    //tutaj zaczyna się kurwa zabawa
+    public void Explore(int[] x, List<State> states)
+    {   if(belongsToState(x)==false)
+    {
+        Map map = new Map();
+        if (map.isFreeS(x))
+        {
+            expand(x, map);
+        }
+        else
+        {
+            map.Attack(x,getState(),map.occupation(states, x));
+        }
+
+
+
+
+
+    }
+
+    }
+
+    public boolean belongsToState(int[] x)
+    {
+        boolean belongs = false;
+
+        for(int[] element: getArea())
+        {
+            if(Arrays.equals(element,x))
+            {
+                belongs=true;
+
+                break;
+            }
+        }
+        return belongs;
+    }
+
+    public State getState()
+    {
+        return this;
+    }
+
 }
