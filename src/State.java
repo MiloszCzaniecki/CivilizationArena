@@ -9,6 +9,7 @@ public class State {
 
 
 
+
     private int gold;
     private int food;
     private int materials;
@@ -30,6 +31,7 @@ public class State {
     public State() {
         area.addAll(usedspace);
     }
+
 
     public Set<int[]> getArea() {
         return area;

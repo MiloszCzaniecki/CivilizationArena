@@ -1,14 +1,14 @@
 package src;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Map {
     private int width;
     private int height;
 
+
     private static int quantity=0;
+
 
 
     public  Map(int w, int h)
@@ -16,6 +16,10 @@ public class Map {
             width = w;
             height = h;
             quantity++;
+    }
+    public Map()
+    {
+
     }
 
     public int getWidth() {
@@ -120,4 +124,43 @@ public class Map {
 
         return free;
     }
+
+    public State occupation (List<State> states, int[] x)
+    {
+        boolean found=false;
+        for(State prop: states)
+        {
+            for(int[] element: prop.getArea())
+            {
+                if(Arrays.equals(element,x))
+                {
+                    found=true;
+                    return prop;
+
+                }
+            }
+            if(found==true)
+            {
+                break;
+            }
+        }
+        return null;
+    }
+
+    public boolean belongsToState(State s, int[] x)
+    {
+        boolean belongs=false;
+        for(int[] element: s.getArea())
+        {
+            if(Arrays.equals(element,x))
+            {
+                belongs=true;
+
+                break;
+            }
+        }
+
+        return belongs;
+    }
 }
+
