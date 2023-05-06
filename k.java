@@ -1,2 +1,2 @@
-public class k {
+public class f {
 }
