@@ -9,8 +9,8 @@ public class Cywilizacja {
         //próbowałem usilnie dodać jakoś mechanikę sprawdzania do kogo należy dany punkt
         //wewnątrz klas, ale niestety się nie dało :/// więc improwizuję w taki sposób
 
-        List<State> stateList = new ArrayList<>();
-        Map map = new Map(2,2);
+        List<State> stateList = new ArrayList<>();//ale widziałem że to normalne, że trzeba użyć tego typu listy
+        Map map = new Map(2,2);             //więc może i jest git
         State Wro = new State(new int[]{1,1},100,100,100);
         State Wwa = new State(new int[]{1,2},100,100,100);
         stateList.add(Wro);
