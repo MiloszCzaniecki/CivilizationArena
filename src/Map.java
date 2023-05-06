@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Arrays;
 
 public class Map {
@@ -87,7 +89,7 @@ public class Map {
     }
     public void Attack(int[] x, State A, State B) // A atakuje B
     {
-        if(neighbour(x,A)) {
+        if(neighbourS(x,A)) {
             int a = A.getGold();
             int b = B.getGold();
 
