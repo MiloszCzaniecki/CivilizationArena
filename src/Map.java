@@ -102,9 +102,7 @@ public class Map {
 
             if (a > b) {
                 changeOccupation(x, B, A);
-                    System.out.println("WALKA UDANA");
-                    System.out.println("WALKA UDANA");
-                    System.out.println("WALKA UDANA");
+
             }
         }
     }
