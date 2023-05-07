@@ -1,7 +1,9 @@
 package src;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Cywilizacja {
     public static void main(String[] args)
@@ -11,8 +13,8 @@ public class Cywilizacja {
 
         List<State> stateList = new ArrayList<>();//ale widziałem że to normalne, że trzeba użyć tego typu listy
         Map map = new Map(10,10);             //więc może i jest git
-        State Wro = new State(new int[]{1,1},102,100,100);
-        State Wwa = new State(new int[]{1,2},100,100,100);
+        State Wro = new State(new int[]{5,5},10,100,100);
+        State Wwa = new State(new int[]{6,6},100,100,100);
         stateList.add(Wro);
         stateList.add(Wwa);
 //test metody wyszukiwania państwa do którego należy punkt x
@@ -23,28 +25,40 @@ public class Cywilizacja {
      //   System.out.println(map.belongsToState(Wro, new int[]{1,2}));
 
 //testy generatora liczb losowych
-      //  Generator G = new Generator();
+        Generator G = new Generator();
       //  System.out.println(G.GenerateToPlus(5));
 
 //testy eksploracji losowej
-        int count =0;
-    for(int i=0;i<1000;i++) //tysiąc prób
-    {
-        Wro.ExploringAction(stateList, 10, 10); //mapa 10x10
+//        int count =0;
+//    for(int i=0;i<1000;i++) //tysiąc prób
+ //   {
+ //       Wro.ExploringAction(stateList, 10, 10); //mapa 10x10
+//
+ //       if(Wro.belongsToState(new int[]{1,2}))
+ //       {
+            //    System.out.print(i+" ");
+         //   System.out.println(Wro.belongsToState(new int[]{1,2}));
+        //    Wro.lose(new int[]{1,2});
+        //    Wwa.annex(new int[]{1,2});
+ ///           count++;
+  //      }
 
-        if(Wro.belongsToState(new int[]{1,2}))
+ //   }
+ //   System.out.println(count);
+
+//testy eksploracji
+        for(int i=0;i<100;i++) //próby\
         {
-        //    System.out.print(i+" ");
-        //    System.out.println(Wro.belongsToState(new int[]{1,2}));
-            Wro.lose(new int[]{1,2});
-         //   Wwa.annex(new int[]{1,2});
-            count++;
+            map.ExplorationTick(stateList);
+           System.out.println("tick"+i);
+            System.out.println("Wrocław");
+            map.OUTTEXTPOINTSCMD(Wro);
+           System.out.println("Warszawa");
+            map.OUTTEXTPOINTSCMD(Wwa);
+            System.out.println();
         }
 
-    }
-    System.out.println(count);
-
-
+    //    map.CMDPOINTREADER(G.GeneratePointOutOf(10,10,Wro));
 
     }
 }

@@ -102,7 +102,7 @@ public class State {
     {   if(belongsToState(x)==false)
     {
         Map map = new Map();
-        if (map.isFreeS(x))
+        if (map.isFreeS(x)&&map.neighbourS(x,getState()))
         {
             expand(x, map);
         }
@@ -138,10 +138,21 @@ public class State {
 
     public void ExploringAction(List<State> states, int X, int Y) //WAŻNE
     {
+
+        Map map = new Map();
+        Generator G = new Generator();
+        Explore(G.GeneratePointOutOf(X, Y, getState()),states);
+        map=null;
+
+
+    }
+
+    public void BlindExploringAction(List<State> states, int X, int Y)
+    {
         Map map = new Map();
         Generator G = new Generator();
         Explore(G.GeneratePoint(X, Y),states);
-
+        map=null;
 
     }
 

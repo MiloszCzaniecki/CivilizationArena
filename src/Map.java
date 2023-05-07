@@ -102,6 +102,9 @@ public class Map {
 
             if (a > b) {
                 changeOccupation(x, B, A);
+                    System.out.println("WALKA UDANA");
+                    System.out.println("WALKA UDANA");
+                    System.out.println("WALKA UDANA");
             }
         }
     }
@@ -162,6 +165,54 @@ public class Map {
         }
 
         return belongs;
+    }
+
+    public void ExplorationTick(List<State> states)
+    {
+        for(State S: states)
+        {
+            S.ExploringAction(states,getWidth(),getHeight());
+        }
+    }
+
+
+
+
+
+
+
+
+////TYLKO DO TESTÓW
+    public void OUTTEXTPOINTSCMD(State A) //metoda dla wiersza poleceń/kompilatora NIE UŻYWAĆ POZA TESTAMI
+    {
+        if(A.getArea()!=null)
+        {
+            int count1 = 0;
+            Set<int[]> q1 = new HashSet<>();
+            q1.addAll(A.getArea());
+            for (int[] a : q1) {
+                int[] bufor = a;
+                int b = bufor[0];
+                int c = bufor[1];
+                count1++;
+                System.out.print("punkt ("+b+".");
+                System.out.println(c+")");
+
+
+            }
+            System.out.println(count1);
+            q1.clear();
+        }
+
+    }
+
+    public void CMDPOINTREADER(int[] x)
+    {
+        int b = x[0];
+        int c = x[1];
+
+        System.out.print("punkt ("+b+".");
+        System.out.println(c+")");
     }
 }
 
