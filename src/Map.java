@@ -99,7 +99,7 @@ public class Map {
         if(neighbourS(x,A)&&B!=null) {
             int a = A.getGold();
             int b = B.getGold();
-
+///TUTAJ jest miejsce w którym można zaimplementować dowolną mechanikę wygrywania/przegrywania, na razie tylko złoto tutaj mamy
             if (a > b) {
                 changeOccupation(x, B, A);
 

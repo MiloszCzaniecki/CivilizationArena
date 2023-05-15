@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Structure
+Structure : -obszar:Set<int[]>
+class Cywilizacja
+Cywilizacja : -obszar:Set<int[]>
+class Fortress extends Structure
+class Map
+Map : -szerokość
+Map : -wysokość
+abstract class Biome
+
+Biome : -Set<int[]> area
+Biome : -int resources
+Biome : -static int quantity
+Biome : +Set<int[]> getArea()
+Biome : +void addArea(int[])
+Biome : int getResources()
+class Jednostka
+Jednostka : -zakres: int
+Jednostka : -atak: int
+Jednostka : -zdrowie: int
+Jednostka : -cywilizacja: int
+Jednostka : -cena: int
+
+class CywilizationArena
+
+class Generator
+
+Generator : +int GenerateToPlus(int)
+Generator : +int[] GeneratePoint(int, int)
+Generator : +int[] GeneratePointOutOf(int, int, State)
+
+
+
+
+
+
+@enduml

@@ -16,14 +16,16 @@ public class Cywilizacja {
         Map map = new Map(10,10);             //więc może i jest git
         State Wro = new State(new int[]{0,0},10,100,100);
         State Wwa = new State(new int[]{4,4},100,100,100);
+        State Krk = new State(new int[]{6,6},120, 100,100);
         stateList.add(Wro);
         stateList.add(Wwa);
+        stateList.add(Krk);
 
 
 //testy eksploracji
 
         TextGUI GUI = new TextGUI();
-       for(int i=0;i<1000;i++) //próby\
+       for(int i=0;i<500;i++) //próby\
         {
             map.ExplorationTick(stateList);
             /*
@@ -36,8 +38,8 @@ public class Cywilizacja {
             */
 
 
-            GUI.gui(Wro, Wwa,map);
-            sleep(100);
+            GUI.gui(Wro, Wwa,Krk,map);
+            sleep(10);
 
             for(int n=0;n!=300;n++)
             {
@@ -47,7 +49,7 @@ public class Cywilizacja {
 
 
         }
-        GUI.gui(Wro, Wwa,map);
+        GUI.gui(Wro, Wwa,Krk,map);
         sleep(100);
     //    map.CMDPOINTREADER(G.GeneratePointOutOf(10,10,Wro));
 
