@@ -2,13 +2,44 @@
 'https://plantuml.com/class-diagram
 
 abstract class Structure
-Structure : -obszar:Set<int[]>
+Structure : -Set<int[]> obszar
+Structure : -int state
 class Cywilizacja
-Cywilizacja : -obszar:Set<int[]>
+Cywilizacja : -Set<int[]> obszar
+Cywilizacja : -static Set<int[]> usedspace
+Cywilizacja : -int gold
+Cywilizacja : -int food
+Cywilizacja : -int resources
+Cywilizacja : -int ID
+Cywilizacja : +Set<int[]> getArea()
+Cywilizacja : +Set<int[]> getGold()
+Cywilizacja : +Set<int[]> getFood()
+Cywilizacja : +Set<int[]> getResources()
+Cywilizacja : +void annex(int[])
+Cywilizacja : +void lose(int[])
+Cywilizacja : +void Explore(int[], List<State>)
+Cywilizacja : +void ExploringAction(List<State>, int, int)
+
+
 class Fortress extends Structure
 class Map
-Map : -szerokość
-Map : -wysokość
+Map : -int szerokość
+Map : -int wysokość
+Map : -static int quantity
+Map : +int getWidth()
+Map : +int getHeight()
+Map : +int getQuantity()
+Map : +boolean belongsToMap(int[])
+Map : +void changeOccupation(int[],State, State)
+Map : +void Attack(int[] x, State A, State B)
+Map : +boolean isFreeS(int[])
+Map : +boolean neighbourS(int[], State)
+Map : +State occupation (List<State> states, int[] x)
+Map : void ExplorationTick(List<State> states)
+
+
+
+
 abstract class Biome
 
 Biome : -Set<int[]> area
@@ -18,13 +49,14 @@ Biome : +Set<int[]> getArea()
 Biome : +void addArea(int[])
 Biome : int getResources()
 class Jednostka
-Jednostka : -zakres: int
-Jednostka : -atak: int
-Jednostka : -zdrowie: int
-Jednostka : -cywilizacja: int
-Jednostka : -cena: int
+Jednostka : -int zakres
+Jednostka : -int atak
+Jednostka : -int zdrowie
+Jednostka : -int cywilizacja
+Jednostka : -int cena
 
-class CywilizationArena
+class CivilizationArena
+CivilizationArena : +static void main(String[] args)
 
 class Generator
 
