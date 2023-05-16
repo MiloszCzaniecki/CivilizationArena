@@ -18,9 +18,9 @@ public class Generator {
 
     public int[] GeneratePoint(int X, int Y)//generuje punkt [x,y] gdzie x<=X y<=Y
     {
-        int[] punkt = {GenerateToPlus(X),GenerateToPlus(Y)};
+        int[] point = {GenerateToPlus(X),GenerateToPlus(Y)};
 
-        return punkt;
+        return point;
     }
 
     public int[] GeneratePointOutOf(int X, int Y, State in)
