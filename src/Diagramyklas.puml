@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class Structure
+Structure : -Set<int[]> obszar
+Structure : -int state
+class Cywilizacja
+Cywilizacja : -Set<int[]> obszar
+Cywilizacja : -static Set<int[]> usedspace
+Cywilizacja : -int gold
+Cywilizacja : -int food
+Cywilizacja : -int resources
+Cywilizacja : -int ID
+Cywilizacja : +Set<int[]> getArea()
+Cywilizacja : +Set<int[]> getGold()
+Cywilizacja : +Set<int[]> getFood()
+Cywilizacja : +Set<int[]> getResources()
+Cywilizacja : +void annex(int[])
+Cywilizacja : +void lose(int[])
+Cywilizacja : +void Explore(int[], List<State>)
+Cywilizacja : +void ExploringAction(List<State>, int, int)
+
+
+class Fortress extends Structure
+class Map
+Map : -int szerokość
+Map : -int wysokość
+Map : -static int quantity
+Map : +int getWidth()
+Map : +int getHeight()
+Map : +int getQuantity()
+Map : +boolean belongsToMap(int[])
+Map : +void changeOccupation(int[],State, State)
+Map : +void Attack(int[] x, State A, State B)
+Map : +boolean isFreeS(int[])
+Map : +boolean neighbourS(int[], State)
+Map : +State occupation (List<State> states, int[] x)
+Map : void ExplorationTick(List<State> states)
+
+
+
+
+abstract class Biome
+
+Biome : -Set<int[]> area
+Biome : -int resources
+Biome : -static int quantity
+Biome : +Set<int[]> getArea()
+Biome : +void addArea(int[])
+Biome : int getResources()
+class Jednostka
+Jednostka : -int zakres
+Jednostka : -int atak
+Jednostka : -int zdrowie
+Jednostka : -int cywilizacja
+Jednostka : -int cena
+
+class CivilizationArena
+CivilizationArena : +static void main(String[] args)
+
+class Generator
+
+Generator : +int GenerateToPlus(int)
+Generator : +int[] GeneratePoint(int, int)
+Generator : +int[] GeneratePointOutOf(int, int, State)
+
+
+
+
+
+
+@enduml

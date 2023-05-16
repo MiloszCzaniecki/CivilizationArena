@@ -26,5 +26,6 @@ public class Biome {
     {
         area.add(x);
     }
+    public int getResources(){return resources;}
 
 }

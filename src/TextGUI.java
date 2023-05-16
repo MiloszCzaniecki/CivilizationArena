@@ -7,7 +7,7 @@ import java.util.Set;
 //OSTROŻNIE Z UŻYWANIEM TEGO GUI, PO ZAPEŁNIENIU MAPY SIĘ BUGUJE I KOMPUTER MOŻE SIĘ SPALIĆ
 public class TextGUI {
 
-    public void gui (State A, State B, Map map) {
+    public void gui (State A, State B, State C, Map map) {
         int[][] mapa = new int[map.getWidth() + 1][map.getHeight() + 1];
         for (int y = 0; y < map.getHeight(); y++)
         {
@@ -17,6 +17,7 @@ public class TextGUI {
         }
         addToMap(A,mapa,map,1);
         addToMap(B,mapa,map,2);
+        addToMap(C,mapa,map,3);
 
         for (int y = 0; y < map.getHeight(); y++) {
             for (int x = 0; x < map.getWidth(); x++) {

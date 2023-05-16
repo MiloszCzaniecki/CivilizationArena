@@ -12,18 +12,18 @@ public class State {
 
     private int gold;
     private int food;
-    private int materials;
+    private int resources;
     private  int ID;
 
     private static int quantity=0;
 
-    public State(int[] a, int g, int f, int m)
+    public State(int[] a, int g, int f, int r)
     {
         usedspace.add(a);
         area.add(a);
         gold = g;
         food = f;
-        materials = m;
+        resources = r;
         ID=quantity+1;
         quantity++;
     }
@@ -45,8 +45,8 @@ public class State {
         return food;
     }
 
-    public int getMaterials() {
-        return materials;
+    public int getResources() {
+        return resources;
     }
 
     public int getID() {
