@@ -2,29 +2,29 @@
 'https://plantuml.com/class-diagram
 
 abstract class Structure
-Structure : -Set<int[]> obszar
+Structure : -Set<int[]> area
 Structure : -int state
-class Cywilizacja
-Cywilizacja : -Set<int[]> obszar
-Cywilizacja : -static Set<int[]> usedspace
-Cywilizacja : -int gold
-Cywilizacja : -int food
-Cywilizacja : -int resources
-Cywilizacja : -int ID
-Cywilizacja : +Set<int[]> getArea()
-Cywilizacja : +Set<int[]> getGold()
-Cywilizacja : +Set<int[]> getFood()
-Cywilizacja : +Set<int[]> getResources()
-Cywilizacja : +void annex(int[])
-Cywilizacja : +void lose(int[])
-Cywilizacja : +void Explore(int[], List<State>)
-Cywilizacja : +void ExploringAction(List<State>, int, int)
+class State
+State : -Set<int[]> area
+State : -static Set<int[]> usedspace
+State : -int gold
+State : -int food
+State : -int resources
+State : -int ID
+State : +Set<int[]> getArea()
+State : +Set<int[]> getGold()
+State : +Set<int[]> getFood()
+State : +Set<int[]> getResources()
+State : +void annex(int[])
+State : +void lose(int[])
+State : +void Explore(int[], List<State>)
+State : +void ExploringAction(List<State>, int, int)
 
 
 class Fortress extends Structure
 class Map
-Map : -int szerokość
-Map : -int wysokość
+Map : -int width
+Map : -int height
 Map : -static int quantity
 Map : +int getWidth()
 Map : +int getHeight()
@@ -48,12 +48,12 @@ Biome : -static int quantity
 Biome : +Set<int[]> getArea()
 Biome : +void addArea(int[])
 Biome : int getResources()
-class Jednostka
-Jednostka : -int zakres
-Jednostka : -int atak
-Jednostka : -int zdrowie
-Jednostka : -int cywilizacja
-Jednostka : -int cena
+class Unit
+Unit : -int range
+Unit : -int attack
+Unit : -int HP
+Unit : -int state
+Unit : -int cost
 
 class CivilizationArena
 CivilizationArena : +static void main(String[] args)

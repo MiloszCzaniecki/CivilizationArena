@@ -34,7 +34,7 @@ public class Map {
     public static int getQuantity() {
         return quantity;
     }
-    public boolean belongsToMap(int[] punkt)
+    public boolean belongsToMap(int[] point)
     {
         boolean belongs = false;
         int w = getWidth();
@@ -43,8 +43,8 @@ public class Map {
         {
             for(int y=0;y<h+1;y++)
             {
-                int[] punkt1 = {x,y};
-                if(Arrays.equals(punkt,punkt1))
+                int[] point1 = {x,y};
+                if(Arrays.equals(point,point1))
                 {
                     belongs = true;
                 }
@@ -193,7 +193,7 @@ public class Map {
                 int b = bufor[0];
                 int c = bufor[1];
                 count1++;
-                System.out.print("punkt ("+b+".");
+                System.out.print("point ("+b+".");
                 System.out.println(c+")");
 
 
@@ -209,7 +209,7 @@ public class Map {
         int b = x[0];
         int c = x[1];
 
-        System.out.print("punkt ("+b+".");
+        System.out.print("point ("+b+".");
         System.out.println(c+")");
     }
 }
