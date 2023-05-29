@@ -5,10 +5,8 @@ import java.util.*;
 public class Map {
     private static int width;
     private static int height;
-
-
     private static int quantity=0;
-
+    public static List<Biome> Biomes = new ArrayList<>();
 
 
     public  Map(int w, int h)
@@ -164,6 +162,36 @@ public class Map {
 
         return belongs;
     }
+
+
+
+    public void addBiome(int[] a, int typ)
+    {
+        Biomes.add(new Biome(a,typ));
+    }
+
+    public void generateBiomes()
+    {
+         Generator Gen = new Generator();
+
+         int q = Gen.GenerateToPlus(getWidth())/2 +1;
+         for(int i = 0; i<q;i++)
+         {
+             addBiome(Gen.GeneratePoint(getWidth(),getHeight()),Gen.GenerateToPlus(2) );
+         }
+
+         int bq = Biomes.size()-1;
+
+         for(int y = 0; y<getHeight();y++)
+         {
+             for(int x=0; x<getWidth();x++)
+             {
+                 Biomes.get(Gen.GenerateToPlus(bq)).addArea(new int []{x,y});
+             }
+         }
+
+    }
+
 
     public void ExplorationTick(List<State> states)
     {

@@ -23,7 +23,7 @@ public class Cywilizacja {
 
 
 //testy eksploracji
-
+/*
         TextGUI GUI = new TextGUI();
        for(int i=0;i<500;i++) //próby\
         {
@@ -37,7 +37,7 @@ public class Cywilizacja {
             System.out.println();
             */
 
-
+/*
             GUI.gui(Wro, Wwa,Krk,map);
             sleep(10);
 
@@ -49,13 +49,24 @@ public class Cywilizacja {
 
 
         }
-        GUI.gui(Wro, Wwa,Krk,map);
-        sleep(100);
+        */
+    //    GUI.gui(Wro, Wwa,Krk,map);
+     //   sleep(100);
     //    map.CMDPOINTREADER(G.GeneratePointOutOf(10,10,Wro));
 
 
 
 
+        //test biomu
+
+        map.generateBiomes();
+        System.out.println(map.Biomes.size());
+
+
+
+
     }
+
+
 
 }

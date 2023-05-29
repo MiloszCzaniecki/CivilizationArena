@@ -7,8 +7,10 @@ import java.util.HashMap;
 public class Biome {
 //17 WARNINGS MA TEN KOD XDDD
     private Set<int[]> area;
+
     private Map<Resource, Integer> resources;
     private int id = 0;
+    private int Resources;
     private static int quantity = 0;
     private BiomeType type;
     private List<Building> buildings;
@@ -34,6 +36,36 @@ public class Biome {
         buildings = new ArrayList<>();
         resources = new HashMap<>();
     }
+
+
+    public Biome(int[] a, int typ) {
+        area = new HashSet<>();
+        area.add(a);
+        quantity++;
+        id = quantity;
+
+        buildings = new ArrayList<>();
+        resources = new HashMap<>();
+        Resources=typ;
+
+        if(typ==1)
+        {
+            this.type=BiomeType.meadow;
+        }
+        if(typ==2)
+        {
+            this.type=BiomeType.forest;
+        }
+        if(typ==0)
+        {
+            this.type=BiomeType.wasteland;
+        }
+
+    }
+
+
+
+
 
 
     public Set<int[]> getArea() {
