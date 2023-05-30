@@ -52,13 +52,38 @@ public class Map {
 
     public void changeOccupation(int[] x, State A, State B)//z A do B
     {
+
+            Fortress fort = fortLocate(A);
+
+
         if (belongsToMap(x) == true) {
             A.lose(x);
             B.annex(x);
         }
+        if(A.getArea().contains(fort.getArea())==false)
+        {
+            A.fortDestruct();
+
+            Forts.remove(fort);
+        }
 
 
 
+
+
+    }
+
+    public Fortress fortLocate(State A)
+    {
+        Fortress fortt = null;
+        for(Fortress fort: Forts)
+        {
+            if(A.getArea().contains(fort.getArea()))
+            {
+                fortt=fort;
+            }
+        }
+        return fortt;
     }
 
     public boolean neighbourS(int[] x, State A) {
@@ -258,32 +283,35 @@ public class Map {
             }
         }
 
+        public void stateCleaner()
+        {
+            List<State> garbage = new ArrayList<>();
+            for(State state: States)
+            {
+
+                if(state.getArea().size()<1)
+                {
+                    garbage.add(state);
+                }
+              else if(state.getFortQ()==0)
+              {
+                  garbage.add(state);
+              }
+
+            }
+
+            States.removeAll(garbage);
+        }
+
     public void ExplorationTick ()
     {
         for (State S : States) {
             S.ExploringAction(States, getWidth(), getHeight());
 
         }
-        for(boolean done1=true;done1==false;) {
-            for (State S : States) {
-                for (boolean done = true; done == false; ) {
-                    for (Fortress fort : Forts) {
-                        if (fort.getState() == S && S.getArea().contains(fort.getArea()) == false) {
-                            S.fortDestruct();
-                            Forts.remove(fort);
-                            done = false;
-                            break;
-                        }
-                    }
-                }
 
-                if (S.getFortQ() == 0) {
-                    States.remove(S);
-                    done1=false;
-                    break;
-                }
-            }
-        }
+        stateCleaner();
+
     }
 
 ////TYLKO DO TESTÓW
@@ -328,7 +356,7 @@ public class Map {
 
         public int[][] CMDBIOMEMAP ()
         {
-            int[][] mapa = new int[getWidth() + 1][getHeight() + 1];
+            int[][] mapa = new int[getWidth() ][getHeight() ];
 
 
 
@@ -357,7 +385,7 @@ public class Map {
 
         public int[][] CMDSTATEMAP()
         {
-            int[][] mapa = new int[getWidth() + 1][getHeight() + 1];
+            int[][] mapa = new int[getWidth() ][getHeight() ];
 
 
 
