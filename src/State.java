@@ -9,7 +9,7 @@ public class State {
 
 
 
-
+    private int fortQ=0;
     private int gold;
     private int food;
     private int resources;
@@ -159,6 +159,22 @@ public class State {
         Explore(G.GeneratePoint(X, Y),states);
         map=null;
 
+    }
+
+    public Fortress newFortress(int[] a)
+    {
+        Fortress fort = new Fortress( a, getState());
+        fortQ++;
+        return fort;
+    }
+
+    public void fortDestruct()
+    {
+        fortQ--;
+    }
+    public int getFortQ()
+    {
+        return fortQ;
     }
 
 }

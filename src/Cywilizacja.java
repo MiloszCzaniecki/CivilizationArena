@@ -14,7 +14,9 @@ public class Cywilizacja {
 
 
 
-        Map map = new Map(10,10);             //więc może i jest git
+        Map map = new Map(10,10);
+        //więc może i jest git
+        map.newState();
         map.newState();
         map.newState();
         map.generateBiomes();
@@ -25,7 +27,7 @@ public class Cywilizacja {
 
 
         map.CMDINTMAPREADER(map.CMDBIOMEMAP());
-       for(int i=0;i<500;i++) //próby\
+       for(int i=0;i<900;i++) //próby\
        {
            map.ExplorationTick();
            map.KResourcesTick();
@@ -42,7 +44,7 @@ public class Cywilizacja {
            System.out.println();
 
            map.CMDINTMAPREADER(map.CMDSTATEMAP());
-           sleep(10);
+         //  sleep(10);
 
            System.out.println();
           // for (int n = 0; n != 300; n++) {

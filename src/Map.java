@@ -8,6 +8,7 @@ public class Map {
     private static int quantity = 0;
     private static List<Biome> Biomes = new ArrayList<>();
     private static List<State> States = new ArrayList<>();
+    private static List<Fortress> Forts = new ArrayList<>();
 
 
     public Map(int w, int h) {
@@ -55,6 +56,7 @@ public class Map {
             A.lose(x);
             B.annex(x);
         }
+
 
 
     }
@@ -226,8 +228,11 @@ public class Map {
         {
             Generator gen = new Generator();
             State prop = new State();
-            State state = new State(gen.GeneratePointOutOf(getWidth(),getHeight(),prop),gen.GenerateToPlus(100), gen.GenerateToPlus(100), gen.GenerateToPlus(100) );
+            int[] point = gen.GeneratePointOutOf(getWidth(),getHeight(),prop);
+            State state = new State(point,gen.GenerateToPlus(100), gen.GenerateToPlus(100), gen.GenerateToPlus(100) );
+
             States.add(state);
+            Forts.add(state.newFortress(point));
         }
 
         public void outKResourcesTick (List < State > states)
@@ -257,6 +262,27 @@ public class Map {
     {
         for (State S : States) {
             S.ExploringAction(States, getWidth(), getHeight());
+
+        }
+        for(boolean done1=true;done1==false;) {
+            for (State S : States) {
+                for (boolean done = true; done == false; ) {
+                    for (Fortress fort : Forts) {
+                        if (fort.getState() == S && S.getArea().contains(fort.getArea()) == false) {
+                            S.fortDestruct();
+                            Forts.remove(fort);
+                            done = false;
+                            break;
+                        }
+                    }
+                }
+
+                if (S.getFortQ() == 0) {
+                    States.remove(S);
+                    done1=false;
+                    break;
+                }
+            }
         }
     }
 
