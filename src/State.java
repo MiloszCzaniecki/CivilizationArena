@@ -49,6 +49,11 @@ public class State {
         return resources;
     }
 
+    public void addResources(int re)
+    {
+        resources = resources + re;
+    }
+
     public int getID() {
         return ID;
     }
@@ -97,7 +102,7 @@ public class State {
         food=food+a;
     }
 
-    //tutaj zaczyna się kurwa zabawa
+    //tutaj zaczyna się  zabawa
     public void Explore(int[] x, List<State> states)
     {   if(belongsToState(x)==false)
     {

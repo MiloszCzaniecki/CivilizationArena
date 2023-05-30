@@ -12,6 +12,7 @@ public class Cywilizacja {
         //próbowałem usilnie dodać jakoś mechanikę sprawdzania do kogo należy dany punkt
         //wewnątrz klas, ale niestety się nie dało :/// więc improwizuję w taki sposób
 
+
         List<State> stateList = new ArrayList<>();//ale widziałem że to normalne, że trzeba użyć tego typu listy
         Map map = new Map(10,10);             //więc może i jest git
         State Wro = new State(new int[]{0,0},10,100,100);
@@ -20,14 +21,17 @@ public class Cywilizacja {
         stateList.add(Wro);
         stateList.add(Wwa);
         stateList.add(Krk);
+        map.generateBiomes();
+
 
 
 //testy eksploracji
-/*
+
         TextGUI GUI = new TextGUI();
-       for(int i=0;i<500;i++) //próby\
-        {
-            map.ExplorationTick(stateList);
+       for(int i=0;i<100;i++) //próby\
+       {
+           map.ExplorationTick(stateList);
+           map.KResourcesTick(stateList);
             /*
            System.out.println("tick"+i);
             System.out.println("Wrocław");
@@ -37,30 +41,33 @@ public class Cywilizacja {
             System.out.println();
             */
 
-/*
-            GUI.gui(Wro, Wwa,Krk,map);
-            sleep(10);
+           map.CMDINTMAPREADER(map.CMDBIOMEMAP());
+           System.out.println();
 
-            for(int n=0;n!=300;n++)
-            {
-                System.out.println();
-            }
-
+           GUI.gui(Wro, Wwa, Krk, map);
+           sleep(1000);
+            System.out.println(Wro.getResources());
+           System.out.println(Wwa.getResources());
+           System.out.println(Krk.getResources());
+           System.out.println();
+          // for (int n = 0; n != 300; n++) {
+          //     System.out.println();
+         //  }
+       }
 
 
         }
-        */
-    //    GUI.gui(Wro, Wwa,Krk,map);
-     //   sleep(100);
-    //    map.CMDPOINTREADER(G.GeneratePointOutOf(10,10,Wro));
+
+
+
 
 
 
 
         //test biomu
 
-        map.generateBiomes();
-        System.out.println(map.Biomes.size());
+
+
 
 
 
@@ -69,4 +76,5 @@ public class Cywilizacja {
 
 
 
-}
+
+

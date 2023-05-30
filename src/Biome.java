@@ -10,7 +10,7 @@ public class Biome {
 
     private Map<Resource, Integer> resources;
     private int id = 0;
-    private int Resources;
+    private int IntResources;
     private static int quantity = 0;
     private BiomeType type;
     private List<Building> buildings;
@@ -46,7 +46,7 @@ public class Biome {
 
         buildings = new ArrayList<>();
         resources = new HashMap<>();
-        Resources=typ;
+        IntResources=typ;
 
         if(typ==1)
         {
@@ -70,6 +70,10 @@ public class Biome {
 
     public Set<int[]> getArea() {
         return area;
+    }
+    public int getIntResources()
+    {
+        return IntResources;
     }
 
     public void addArea(int[] x) {
