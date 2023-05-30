@@ -7,6 +7,7 @@ public class Map {
     private static int height;
     private static int quantity = 0;
     private static List<Biome> Biomes = new ArrayList<>();
+    private static List<State> States = new ArrayList<>();
 
 
     public Map(int w, int h) {
@@ -220,21 +221,44 @@ public class Map {
             s.addResources(resourcesK(s));
         }
 
-        public void KResourcesTick (List < State > states)
+
+        public void newState()
+        {
+            Generator gen = new Generator();
+            State prop = new State();
+            State state = new State(gen.GeneratePointOutOf(getWidth(),getHeight(),prop),gen.GenerateToPlus(100), gen.GenerateToPlus(100), gen.GenerateToPlus(100) );
+            States.add(state);
+        }
+
+        public void outKResourcesTick (List < State > states)
         {
             for (State s : states) {
                 resourcesRenewK(s);
             }
         }
 
+    public void KResourcesTick ()
+    {
+        for (State s : States) {
+            resourcesRenewK(s);
+        }
+    }
 
-        public void ExplorationTick (List < State > states)
+
+
+        public void outExplorationTick (List < State > states)
         {
             for (State S : states) {
                 S.ExploringAction(states, getWidth(), getHeight());
             }
         }
 
+    public void ExplorationTick ()
+    {
+        for (State S : States) {
+            S.ExploringAction(States, getWidth(), getHeight());
+        }
+    }
 
 ////TYLKO DO TESTÓW
         public void OUTTEXTPOINTSCMD (State A) //metoda dla wiersza poleceń/kompilatora NIE UŻYWAĆ POZA TESTAMI
@@ -303,6 +327,31 @@ public class Map {
                 }
                 System.out.println();
             }
+        }
+
+        public int[][] CMDSTATEMAP()
+        {
+            int[][] mapa = new int[getWidth() + 1][getHeight() + 1];
+
+
+
+            for(int y=0;y<getHeight();y++)
+            {
+                for(int x=0;x<getWidth();x++)
+                {
+                    if(occupation(States, new int[]{x, y})==null)
+                    {
+                        mapa[x][y] =0;
+                    }
+                    else {
+                        mapa[x][y] = occupation(States, new int[]{x, y}).getID();
+                    }
+
+                }
+            }
+
+
+            return mapa;
         }
     }
 
