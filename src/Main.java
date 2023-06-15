@@ -7,13 +7,13 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
 
-        Map map = new Map(2,2);
+        Map map = new Map(2,2);// Tworzy nową mapę
 
         System.out.print("width"+map.getWidth());
         System.out.print(" height"+map.getHeight());
         System.out.println(" quantity"+map.getQuantity());
 
-        State Wrocław = new State(new int[]{1, 1},200,100,100);
+        State Wrocław = new State(new int[]{1, 1},200,100,100);//Tworzy nowy State Wrocław
 
     if(Wrocław.getArea()!=null)
     {
@@ -32,7 +32,7 @@ public class Main {
         System.out.print("wroID"+Wrocław.getID());
         System.out.println(" quantity"+Wrocław.getQuantity());
 
-        State Warszawa = new State(new int[]{1, 2},100,100,100);
+        State Warszawa = new State(new int[]{1, 2},100,100,100);//Tworzy nowy State Warszawa
 
         if(Warszawa.getArea()!=null)
         {

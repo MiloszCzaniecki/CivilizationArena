@@ -17,7 +17,7 @@ public class Map {
             height = h;
             quantity++;
     }
-    public Map()
+    public Map()//konstruktor domyślny
     {
 
 
@@ -34,7 +34,7 @@ public class Map {
     public static int getQuantity() {
         return quantity;
     }
-    public boolean belongsToMap(int[] point)
+    public boolean belongsToMap(int[] point)//sprawdza, czy podany punkt znajduje się na mapie
     {
         boolean belongs = false;
         int w = getWidth();
@@ -53,7 +53,7 @@ public class Map {
         }
         return belongs;
     }
-    public void changeOccupation(int[] x,State A, State B)//z A do B
+    public void changeOccupation(int[] x,State A, State B)//zmienia przynależność punktu z A do B
     {
         if(belongsToMap(x)==true)
         {
@@ -63,7 +63,7 @@ public class Map {
 
 
     }
-    public boolean neighbourS(int[]x, State A)
+    public boolean neighbourS(int[]x, State A)//sprawdza, czy punkt x ma sąsiada
     {
         boolean neighbour = false;
         int[] case1={0,0};
@@ -107,7 +107,7 @@ public class Map {
         }
     }
 
-    public boolean isFreeS(int[] x)
+    public boolean isFreeS(int[] x)//sprawdza, czy punkt x jest wolny, tj. nie należy do żadnego stanu
     {
         boolean free=true;
         State prop = new State();
@@ -127,7 +127,7 @@ public class Map {
         return free;
     }
 
-    public State occupation (List<State> states, int[] x)
+    public State occupation (List<State> states, int[] x)// znajduje State, do którego należy punkt x
     {
         boolean found=false;
         for(State prop: states)
@@ -149,7 +149,7 @@ public class Map {
         return null;
     }
 
-    public boolean belongsToState(State s, int[] x)
+    public boolean belongsToState(State s, int[] x)//sprawdza, czy punkt x należy do danego State s
     {
         boolean belongs=false;
         for(int[] element: s.getArea())
@@ -165,7 +165,7 @@ public class Map {
         return belongs;
     }
 
-    public void ExplorationTick(List<State> states)
+    public void ExplorationTick(List<State> states)//wykonuje operację eksploracji dla każdego stanu w liście states
     {
         for(State S: states)
         {

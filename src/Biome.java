@@ -5,13 +5,13 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Biome {
-//17 WARNINGS MA TEN KOD XDDD
-    private Set<int[]> area;
-    private Map<Resource, Integer> resources;
-    private int id = 0;
-    private static int quantity = 0;
-    private BiomeType type;
-    private List<Building> buildings;
+
+    private Set<int[]> area;// Zbiór współrzędnych reprezentujących obszar biomu
+    private Map<Resource, Integer> resources;// Mapa zasobów dostępnych w danym biomu
+    private int id = 0;// Unikalny identyfikator biomu
+    private static int quantity = 0;// Liczba utworzonych biomów
+    private BiomeType type;// Typ biomu (łąka, las, pustkowie)
+    private List<Building> buildings;// Lista budynków zbudowanych w danym biomie
 
     public enum BiomeType {
         meadow, forest, wasteland

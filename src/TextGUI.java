@@ -7,7 +7,7 @@ import java.util.Set;
 //OSTROŻNIE Z UŻYWANIEM TEGO GUI, PO ZAPEŁNIENIU MAPY SIĘ BUGUJE I KOMPUTER MOŻE SIĘ SPALIĆ
 public class TextGUI {
 
-    public void gui (State A, State B, State C, Map map) {
+    public void gui (State A, State B, State C, Map map) {// Wyświetla GUI
         int[][] mapa = new int[map.getWidth() + 1][map.getHeight() + 1];
         for (int y = 0; y < map.getHeight(); y++)
         {
@@ -30,7 +30,7 @@ public class TextGUI {
 
     }
 
-    public void addToMap(State A, int[][] mapa, Map map, int symbol)
+    public void addToMap(State A, int[][] mapa, Map map, int symbol)// Dodaje obszar stanu A do mapy i oznacza go określonym symbolem
     {
         if (A.getArea() != null) {
             Set<int[]> bufor = new HashSet<>();

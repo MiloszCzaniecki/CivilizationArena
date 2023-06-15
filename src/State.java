@@ -17,7 +17,7 @@ public class State {
 
     private static int quantity=0;
 
-    public State(int[] a, int g, int f, int r)
+    public State(int[] a, int g, int f, int r)//konstruktor inicjalizujący
     {
         usedspace.add(a);
         area.add(a);
@@ -30,39 +30,39 @@ public class State {
 
     public State() {
         area.addAll(usedspace);
-    }
+    }//konstruktor domyślny
 
 
     public Set<int[]> getArea() {
         return area;
-    }
+    }//wraca obszar State
 
     public int getGold() {
         return gold;
-    }
+    }//zwraca liczbę złota
 
     public int getFood() {
         return food;
-    }
+    }//zwraca liczbę jedzenia
 
     public int getResources() {
         return resources;
-    }
+    }//zwraca liczbę zasobów
 
     public int getID() {
         return ID;
-    }
+    }//zwraca ID
 
     public static int getQuantity() {
         return quantity;
     }
 
-    public void annex( int[] a)
+    public void annex( int[] a)//dodaje przestrzeń
     {
         area.add(a);
         usedspace.add(a);
     }
-    public void lose(int[] a)
+    public void lose(int[] a)//usuwa przestrzeń
     {
         int[] usun = null;
         for(int[] e: area)
@@ -77,7 +77,7 @@ public class State {
         area.remove(usun);
 
     }
-    public boolean expand(int[] x, Map map)
+    public boolean expand(int[] x, Map map)//rozszerza obszar
     {
         boolean success = false;
         if(map.belongsToMap(x))
@@ -97,8 +97,8 @@ public class State {
         food=food+a;
     }
 
-    //tutaj zaczyna się kurwa zabawa
-    public void Explore(int[] x, List<State> states)
+    //tutaj zaczyna się zabawa
+    public void Explore(int[] x, List<State> states)// eksploruje lub atakuje?
     {   if(belongsToState(x)==false)
     {
         Map map = new Map();
@@ -115,7 +115,7 @@ public class State {
 
     }
 
-    public boolean belongsToState(int[] x)
+    public boolean belongsToState(int[] x)// sprawdza, czy punkt x należy do State
     {
         boolean belongs = false;
 

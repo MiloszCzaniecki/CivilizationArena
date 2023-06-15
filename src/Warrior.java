@@ -75,7 +75,7 @@ public class Warrior implements Unit {
 
 
     @Override
-    public void attack(Unit enemy) {
+    public void attack(Unit enemy) {// atakuje jednostkę wroga, zmniejsza jej zdrowie o wartość siły ataku
         if (enemy != null && enemy.getState() != 0) {
             int damage = getPower();
             enemy.setHealth(enemy.getHealth() - damage);
@@ -90,7 +90,7 @@ public class Warrior implements Unit {
     }
 
     @Override
-    public void move(int x, int y) {
+    public void move(int x, int y) {// przemieszcza jednostkę na określoną pozycję (x, y) na mapie
         if (isFreePosition(x, y)) {
             System.out.println("Wojownik przemieszcza się na pozycję: (" + x + ", " + y + ")");
             currentX = x;
@@ -100,14 +100,14 @@ public class Warrior implements Unit {
         }
     }
 
-    private boolean isFreePosition(int x, int y) {
+    private boolean isFreePosition(int x, int y) {// sprawdza, czy pozycja (x, y) na mapie jest wolna i należy do mapy
         int[] position = {x, y};
         return map.belongsToMap(position) && map.isFreeS(position);
     }
 
     public void makeRandomMove() {
         Random random = new Random();
-        int direction = random.nextInt(4);  // Losowe wybranie jednego z czterech kierunków (0-3)
+        int direction = random.nextInt(4);  // losowe wybranie jednego z czterech kierunków (0-3)
 
         int newX = currentX;
         int newY = currentY;
