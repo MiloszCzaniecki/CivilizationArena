@@ -34,6 +34,11 @@ public class Map {
         return quantity;
     }
 
+    public List<State> getStates()
+    {
+        return States;
+    }
+
     public boolean belongsToMap(int[] point) {
         boolean belongs = false;
         int w = getWidth();
@@ -312,6 +317,14 @@ public class Map {
 
         stateCleaner();
 
+    }
+
+    public void generateStates(int a)
+    {
+        for(int n=0;  a>n; n++)
+        {
+            newState();
+        }
     }
 
 ////TYLKO DO TESTÓW

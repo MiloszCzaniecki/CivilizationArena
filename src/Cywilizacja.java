@@ -9,65 +9,45 @@ import static java.lang.Thread.sleep;
 
 public class Cywilizacja {
     public static void main(String[] args) throws InterruptedException {
-        //próbowałem usilnie dodać jakoś mechanikę sprawdzania do kogo należy dany punkt
-        //wewnątrz klas, ale niestety się nie dało :/// więc improwizuję w taki sposób
 
 
 
         Map map = new Map(10,10);
-        //więc może i jest git
-        map.newState();
-        map.newState();
-        map.newState();
         map.generateBiomes();
+        map.generateStates(4);
 
 
-
-//testy eksploracji
-
-
+        System.out.println("MAPA BIOMÓW");
         map.CMDINTMAPREADER(map.CMDBIOMEMAP());
+        sleep(2000);
        for(int i=0;i<900;i++) //próby\
        {
            map.ExplorationTick();
            map.KResourcesTick();
-            /*
-           System.out.println("tick"+i);
-            System.out.println("Wrocław");
-            map.OUTTEXTPOINTSCMD(Wro);
-           System.out.println("Warszawa");
-            map.OUTTEXTPOINTSCMD(Wwa);
-            System.out.println();
-            */
+
 
 
            System.out.println();
+            if(i%10==0)
+            {
+                map.CMDINTMAPREADER(map.CMDSTATEMAP());
+                sleep(100);
 
-           map.CMDINTMAPREADER(map.CMDSTATEMAP());
-         //  sleep(10);
+            }
+
 
            System.out.println();
-          // for (int n = 0; n != 300; n++) {
-          //     System.out.println();
-         //  }
+           for (int n = 0; n != 50; n++) {
+              System.out.println();
+          }
+       }
+       for(State prop: map.getStates())
+       {
+           System.out.println(prop.getID()+" "+prop.getResources()+" "+prop.getGold());
        }
 
 
         }
-
-
-
-
-
-
-
-        //test biomu
-
-
-
-
-
-
 
     }
 
